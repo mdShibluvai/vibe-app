@@ -370,10 +370,9 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
       </div>
     </div>
   );
-
-  // ───────────── COMPOSE MODAL ─────────────
+// ───────────── COMPOSE MODAL ─────────────
   const ComposeModal = () => !showCompose ? null : (
-    <div className="fade-in" style={{ position:"fixed", inset:0, background:"rgba(0,0,0,0.7)", zIndex:1000, display:"flex", alignItems:"flex-start", justifyContent:"center", padding:"60px 16px 16px" }}>
+    <div className="fade-in" style={{ position:"fixed", inset:0, bckground:"rgba(0,0,0,0.7)", zIndex:1000, display:"flex", alignItems:"flex-start", justifyContent:"center", padding:"60px 16px 16px" }}>
       <div className="scale-in" style={{ background:"var(--bg1)", border:"1px solid var(--border2)", borderRadius:20, padding:20, width:"100%", maxWidth:540 }}>
         <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:16 }}>
           <button onClick={()=>setShowCompose(false)} style={{ background:"none", border:"none", padding:6, borderRadius:"50%" }}><Icon name="close" size={20} color="var(--text2)"/></button>
@@ -460,8 +459,7 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
           </button>
         ))}
       </div>
-
-      {/* Compose row */}
+     {/* Compose row */}
       <div style={{ display:"flex", gap:12, padding:"12px 16px", borderBottom:"1px solid var(--border)" }}>
         <Av user={meUser} size={44}/>
         <div style={{ flex:1 }}>
@@ -474,15 +472,12 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
           </div>
         </div>
       </div>
-
-      {/* Posts */}
+   {/* Posts */}
       {posts.map((p, i) => <PostCard key={p.id} post={p} idx={i}/>)}
     </div>
   );
-
   const ExplorePage = () => (
     <div> );
-
   const ExplorePage = () => (
     <div>
       <div style={{ padding:"12px 16px", borderBottom:"1px solid var(--border)", position:"sticky", top:0, background:"rgba(0,0,0,0.9)", backdropFilter:"blur(20px)", zIndex:10 }}>
@@ -491,8 +486,7 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
           <input placeholder={t.search} style={{ background:"none", border:"none", outline:"none", color:"var(--text)", fontSize:15, flex:1 }}/>
         </div>
       </div>
-
-      {/* Trending */}
+     {/* Trending */}
       <div style={{ padding:"16px 16px 6px" }}>
         <div style={{ fontWeight:800, fontSize:20, marginBottom:14 }}>🔥 {t.trending}</div>
         {TRENDS.map((tr, i)=>(
@@ -503,8 +497,7 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
           </div>
         ))}
       </div>
-
-      {/* Suggested users */}
+    {/* Suggested users */}
       <div style={{ padding:"20px 16px 6px" }}>
         <div style={{ fontWeight:800, fontSize:20, marginBottom:14 }}>👥 {t.forYou}</div>
         {USERS.map(u=>(
@@ -526,7 +519,6 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
       </div>
     </div>
   );
-
   const NotifsPage = () => (
     <div>
       <div style={{ padding:"14px 16px", borderBottom:"1px solid var(--border)", fontWeight:800, fontSize:20, position:"sticky", top:0, background:"rgba(0,0,0,0.9)", backdropFilter:"blur(20px)", zIndex:10 }}>{t.notifs}</div>
@@ -552,7 +544,6 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
       })}
     </div>
   );
-
   const MsgsPage = () => {
     if (activeChat) {
       const chatData = msgs.find(m=>m.uid===activeChat.id);
@@ -632,7 +623,6 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
       </div>
     );
   };
-
   const ProfilePage = () => {
     const u = meUser;
     return (
@@ -657,12 +647,10 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
             <span><b style={{ color:"var(--text)" }}>0</b> {t.followers}</span>
           </div>
         </div>
-
-        {/* Settings */}
+     {/* Settings */}
         <div style={{ borderTop:"1px solid var(--border)", padding:16 }}>
           <div style={{ fontWeight:800, fontSize:18, marginBottom:16 }}>{t.settings}</div>
-
-          {/* Language */}
+        {/* Language */}
           <div style={{ marginBottom:20 }}>
             <div style={{ color:"var(--text2)", fontSize:13, marginBottom:10, display:"flex", alignItems:"center", gap:6 }}>
               <Icon name="globe" size={15} color="var(--text3)"/>{t.language}
@@ -682,7 +670,6 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
       </div>
     );
   };
-
   // ───────────── BOTTOM NAV ─────────────
   const NAV = [
     { id:"home", icon:"home", iconF:"homeF" },
@@ -691,14 +678,12 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
     { id:"messages", icon:"mail", iconF:"mailF" },
     { id:"profile", icon:"user", iconF:"userF" },
   ];
-
   return (
     <div style={{ background:"var(--bg)", minHeight:"100dvh", maxWidth:600, margin:"0 auto", position:"relative" }}>
       <style>{GLOBAL_CSS}</style>
       <CallOverlay/>
       <ComposeModal/>
-
-      {/* Main Content */}
+    {/* Main Content */}
       <div style={{ paddingBottom:64, minHeight:"100dvh" }}>
         {tab==="home" && <HomePage/>}
         {tab==="explore" && <ExplorePage/>}
@@ -706,8 +691,7 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
         {tab==="messages" && <MsgsPage/>}
         {tab==="profile" && <ProfilePage/>}
       </div>
-
-      {/* Bottom Nav */}
+    {/* Bottom Nav */}
       <div style={{ position:"fixed", bottom:0, left:"50%", transform:"translateX(-50%)", width:"100%", maxWidth:600, height:60, background:"rgba(0,0,0,0.95)", backdropFilter:"blur(24px)", borderTop:"1px solid var(--border)", display:"flex", alignItems:"center", zIndex:100 }}>
         {NAV.map(n=>{
           const active = tab===n.id;
@@ -721,8 +705,7 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
           );
         })}
       </div>
-
-      {/* FAB */}
+   {/* FAB */}
       {tab==="home" && !showCompose && (
         <button onClick={()=>setShowCompose(true)} style={{ position:"fixed", bottom:76, right:"max(16px, calc(50% - 284px))", width:52, height:52, background:"var(--accent)", border:"none", borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", zIndex:50, boxShadow:"0 4px 20px rgba(29,155,240,0.35)", transition:"transform 0.15s" }}
           onMouseOver={e=>e.currentTarget.style.transform="scale(1.06)"} onMouseOut={e=>e.currentTarget.style.transform="scale(1)"}>
@@ -731,6 +714,5 @@ const VBadge = ({ color="#1d9bf0", size=16 }) => (
       )}
     </div>
   );
-       }
-       
+       }       
 ───
